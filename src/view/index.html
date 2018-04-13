@@ -14,6 +14,7 @@
 <body>
   <div class="page-group">
     <div class="page page-current">
+      <!-- 搜索框 -->
       <div class="bar bar-header-secondary mysearch">
         <div class="searchbar">
           <a class="searchbar-cancel">取消</a>
@@ -23,30 +24,32 @@
           </div>
         </div>
       </div>
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="https://image3.suning.cn/uimg/cms/img/151738383270780554.jpg?from=mobile" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="https://image4.suning.cn/uimg/cms/img/151937554134486711.jpg?from=mobile" alt="">
-          </div>
-          <div class="swiper-slide"><img src="https://image2.suning.cn/uimg/aps/material/151939080657956233.jpg|/uimg/aps/material/151936970303149620.jpg" alt=""></div>
-        </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
+      <div class="content" id="content">
+        <!-- 轮播图 -->
+        <div class="swiper-container" id="swiperInfo"></div>
       </div>
     </div>
   </div>
-  
 
 
-
+  <!-- 轮播图模板 -->
+  <script type="text/template" id="swiperTpl">
+    <div class="swiper-wrapper">
+      {{each list}}
+      <div class="swiper-slide">
+        <img src="{{$value.image_url}}">
+      </div>
+      {{/each}}
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+  </script>
 
   <script type='text/javascript' src='assets/axios/axios.min.js' charset='utf-8'></script>
   <script type='text/javascript' src='assets/zepto/zepto.min.js' charset='utf-8'></script>
   <script type='text/javascript' src='assets/sui/js/sm.min.js' charset='utf-8'></script>
   <script type='text/javascript' src='assets/swiper/js/swiper.min.js' charset='utf-8'></script>
+  <script type="text/javascript" src="assets/artTemplate/template-web.js"></script>
   <script type='text/javascript' src='js/app.js' charset='utf-8'></script>
   <script type='text/javascript' src='js/login.js' charset='utf-8'></script>
   <script type='text/javascript' src='js/index.js' charset='utf-8'></script>
