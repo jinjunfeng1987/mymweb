@@ -24,6 +24,7 @@
           </div>
         </div>
       </div>
+      
       <div class="content" id="content">
         <!-- 轮播图 -->
         <div class="swiper-container" id="swiperInfo"></div>
@@ -62,37 +63,39 @@
       </a>
     </div>
     {{if ($index + 1) % 5 ==0}}
-     </div>
-     <div class="row">
+  </div>
+  <div class="row">
     {{/if}}
     {{/each}}
   </div>
 </script>
+<!-- 列表模板 -->
 <script type="text/template" id="listTpl">
-  {{each list}}
-    <div class="content-padded list-title">
-      <img src="{{$value.group_img}}" alt="">
-    </div>
-    <div class="content-padded list-item">
-      <div class="row">
-        {{each $value.goods item}}
-          <div class="col-50">
-            <div class="pic">
-              <img src="{{$value.goods_big_logo}}">
-            </div>
-            <div class="name">{{$value.goods_name}}</div>
-            <div class="price">
-              <span>¥ {{$value.goods_price}}</span>
-              <a href="/goods-list.html?cid={{item.cat_id}}">找相似</a>
-            </div>
-          </div>
-          {{if ($index + 1) %2 ==0}}
-          </div>
-          <div class="row">
-          {{/if}}
-        {{/each}}
+  {{each $data}}
+  <!-- 内容列表模板 -->
+  <div class="content-padded list-title">
+    <img src="{{$value.group_img}}">
+  </div>
+  <div class="content-padded list-item">
+    <div class="row">
+      {{each $value.goods item}}
+      <div class="col-50">
+        <div class="pic">
+          <img src="{{item.goods_big_logo}}">
+        </div>
+        <div class="name">{{item.goods_name}}</div>
+        <div class="price">
+          <span>¥ {{item.goods_price}}</span>
+          <a href="/goods-list.html?cid={{item.cat_id}}" class="button external">找相似</a>
+        </div>
       </div>
+      {{if ($index + 1) % 2 == 0}}
     </div>
+    <div class="row">
+      {{/if}}
+      {{/each}}
+    </div>
+  </div>
   {{/each}}
 </script>
 
